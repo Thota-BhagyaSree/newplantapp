@@ -1,0 +1,51 @@
+<p style="font-size: xx-large; color: green; text-align: center;">Planter Review Form</p>
+
+<form (ngSubmit)="onSubmit()" #planterReviewForm="ngForm">
+  <tr>
+    <div class="form-group">
+      <label for="planterId">Planter Id</label>
+      <input type="text" class="form-control" id="planterId" name="planterId" [(ngModel)]="model.planterId"
+        placeholder="Enter PlanterId e.g 101" required>
+
+    </div>
+  </tr>
+  <br><br>
+  <tr>
+    <div class="form-group">
+      <label for="customerName">CustomerName</label>
+      <input type="text" class="form-control" id="customerName" name="customerName" [(ngModel)]="model.customerName"
+        placeholder="Enter CustomerName" required>
+
+    </div>
+  </tr>
+  <br><br>
+  <tr>
+    <div class="form-group">
+      <label for="starRating">Number of Stars</label>
+      <div class="star-rating">
+        <span class="star" [class.filled]="model.starRating >= 1" (click)="model.starRating = 1">&#9733;</span>
+        <span class="star" [class.filled]="model.starRating >= 2" (click)="model.starRating = 2">&#9733;</span>
+        <span class="star" [class.filled]="model.starRating >= 3" (click)="model.starRating = 3">&#9733;</span>
+        <span class="star" [class.filled]="model.starRating >= 4" (click)="model.starRating = 4">&#9733;</span>
+        <span class="star" [class.filled]="model.starRating >= 5" (click)="model.starRating = 5">&#9733;</span>
+      </div>
+    </div>
+
+  </tr>
+  <br><br>
+  <tr>
+    <div class="form-group">
+      <label for="msg">Message</label>
+      <textarea class="form-control" id="msg" name="msg" [(ngModel)]="model.msg"
+        placeholder="Write your thoghts about the product"></textarea>
+    </div>
+  </tr>
+  <br><br>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+ 
+</form>
+
+
+<div *ngIf="status == true" class="alert alert-success mt-3">Your review has been submitted successfully.</div>
+<div *ngIf="status == false" class="alert alert-danger mt-3">Review not submitted</div>
